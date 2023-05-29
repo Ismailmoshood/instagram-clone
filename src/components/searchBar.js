@@ -26,7 +26,7 @@ const SearchBar = ({ searchInput }) => {
         } else {
             setFilteredItems([]);
         }
-    }, [searchInput]);
+    }, [users, searchInput]);
 
     return (
         <div

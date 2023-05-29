@@ -8,13 +8,12 @@ import { DEFAULT_IMAGE_PATH } from '../../constants/paths';
 export default function Header({ username }) {
   const [user, setUser] = useState([])
   useEffect(() => {
-    const usernameParam = username
     async function getPostUser() {
-      const res = await getUserByUsername(usernameParam);
+      const res = await getUserByUsername(username);
      setUser(res[0])
     }
     getPostUser();
-  }, []);
+  }, [username]);
   return (
     <div className="flex border-b border-gray-primary h-4 p-4 py-8">
       <div className="flex items-center">
