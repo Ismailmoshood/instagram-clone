@@ -6,17 +6,19 @@ export default function useUser() {
     const [ activeUser, setActiveUser ] = useState({});
     const { user } = useContext(UserContext);
     // console.log(activeUser)
-    async function getUserObjByUserId() {
-      // console.log(user.uid)
+   
+
+    const updateProfile = async () => {
         const [response] = await getUserByUserId(user.uid);
         setActiveUser(response);
     }
 
-    const updateProfile = () => {
-        getUserObjByUserId();
-    }
-
     useEffect(() => {
+        async function getUserObjByUserId() {
+            // console.log(user.uid)
+              const [response] = await getUserByUserId(user.uid);
+              setActiveUser(response);
+          }
         if(user?.uid) {
             getUserObjByUserId();
         }

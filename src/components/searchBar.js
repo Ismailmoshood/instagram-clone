@@ -12,7 +12,11 @@ const SearchBar = ({ searchInput }) => {
         setUsers(result);
     }
 
-    const searchUsers = () => {
+    useEffect(() => {
+        getUsers();
+    }, []);
+
+    useEffect(() => {
         if(searchInput.trim()) {
             const filteredArray = users.filter(item =>
                 item.username.toLowerCase().includes(searchInput.toLowerCase())
@@ -22,14 +26,6 @@ const SearchBar = ({ searchInput }) => {
         } else {
             setFilteredItems([]);
         }
-    }
-
-    useEffect(() => {
-        getUsers();
-    }, []);
-
-    useEffect(() => {
-      searchUsers();
     }, [searchInput]);
 
     return (

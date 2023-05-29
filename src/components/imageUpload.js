@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import FirebaseContext from '../context/firebase';
 import useUser from "../hooks/use-user";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { doc, setDoc, collection, serverTimestamp } from "firebase/firestore";
+import { doc, setDoc, collection } from "firebase/firestore";
 
 
 export function ImageUpload(){

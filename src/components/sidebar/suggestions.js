@@ -9,8 +9,9 @@ export default function Suggestions({ userId, following, loggedInUserDocId }) {
   const [profiles, setProfiles] = useState(null);
 
   useEffect(() => {
+    const followingParam = following
     async function suggestedProfiles() {
-      const response = await getSuggestedProfiles(userId, following);
+      const response = await getSuggestedProfiles(userId, followingParam);
       setProfiles(response);
     }
 
